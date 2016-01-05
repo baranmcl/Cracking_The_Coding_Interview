@@ -7,3 +7,8 @@ EXAMPLE
 Input: "Mr John Smith    ", 13
 Output: "Mr%20John%20Smith"
 '''
+def spaceReplace(string, length):
+    return string[:13].replace(" ","%20")
+    
+if __name__ == '__main__':
+    print(spaceReplace("Mr John Smith    ", 13))
