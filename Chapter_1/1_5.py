@@ -10,14 +10,11 @@ def compress(string):
         if string[i] == string[i+1]: 
             count += 1
         else:
-            if count > 1:
-                result += string[i-count+1] + str(count)
-            else:
-                result += string[i] + str(count)
+            result += string[i-count+1] + str(count)
             count = 1
-    result += string[-1] + str(count)           
+    result += string[-1] + str(count)  
     if len(result) >= len(string):
-        return string
+        return string         
     return result
     
 if __name__ == '__main__':
