@@ -7,8 +7,12 @@ EXAMPLE
 Input: "Mr John Smith    ", 13
 Output: "Mr%20John%20Smith"
 '''
-def spaceReplace(string, length):
-    return string[:length].replace(" ","%20")
+#def spaceReplace(string, length):
+#    return string[:length].replace(" ","%20")
+
+def spaceReplace2(string, length):
+    s = string[:length].split(" ")
+    return '20%'.join(s)
     
 if __name__ == '__main__':
-    print(spaceReplace("Mr John Smith    ", 13))
+    print(spaceReplace2("Mr John Smith    ", 13))
