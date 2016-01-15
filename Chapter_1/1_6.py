@@ -7,9 +7,16 @@ def rotate(matrix):
     for row in matrix:
         if len(matrix) != len(row):
             return "Improper Matrix Size. Not NxN."
-    #Transpose matrix and reverse each row to rotate +90 degrees.
-    newMatrix = [list(row)[::-1] for row in zip(*matrix)]
-    return newMatrix
+    #newMatrix = [list(row)[::-1] for row in zip(*matrix)]
+    #transpose
+    transposed = [None]*len(matrix)
+    for i in range(len(matrix)):
+        transposed[i] = [None]*len(matrix)
+        for j in range(len(matrix[i])):
+            transposed[i][j] = matrix[j][i]
+    #rotates by reversing each transposed row
+    rotated = [row[::-1] for row in transposed]
+    return rotated
     
     
 if __name__ == '__main__':
