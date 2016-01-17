@@ -9,7 +9,7 @@ class LinkedList:
     def display(self,head):
         current = head
         while current:
-            print(current.data,end=' ')
+            print(current.data)
             current = current.next
     def insert(self,head,data): 
     #Complete this method
@@ -24,10 +24,10 @@ class LinkedList:
             head = new_node
             return head
 if __name__ == "__main__":
-  mylist= LinkedList()
-  T=[5,4,1,2,3]
-  head=None
-  for i in T:
-      data=int(i)
-      head=mylist.insert(head,data)    
-  mylist.display(head); 	  
+    mylist= LinkedList()
+    T=[5,4,1,2,3]
+    head=None
+    for i in T:
+        data=int(i)
+        head=mylist.insert(head,data)    
+    mylist.display(head); 	
