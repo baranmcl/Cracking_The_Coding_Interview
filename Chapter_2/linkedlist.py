@@ -20,15 +20,34 @@ class LinkedList:
     new_node = Node(data)
     self.tail_node.set_next(new_node)
     self.tail_node = new_node
-  def displayList(self):
+  def display(self):
     current = self.head_node
     while current:
       print(current.get_data())
       current = current.get_next()
+  def displayList(self):
+    current = self.head_node
+    result = []
+    while current:
+        result.append(current.get_data())
+        current = current.get_next()
+    return result
+  def removeByData(self, data):
+    current = self.head_node
+    previous = None
+    while current:
+        if current.get_data() == data:
+            if previous != None:
+                previous.set_next(current.get_next())
+                break
+            else:
+                current = current.get_next()
+        previous = current
+        current = current.get_next()
       
-      
-linkeddata = [5,4,1,2,3]
-newList = LinkedList(Node(linkeddata[0]))
-for i in linkeddata[1:]:
-    newList.insert(i)
-newList.displayList()
+if __name__ == "__main__":
+    linkeddata = [5,4,1,2,3,4,6,5,2]
+    newList = LinkedList(Node(linkeddata[0]))
+    for i in linkeddata[1:]:
+        newList.insert(i)
+    print(newList.displayList())
