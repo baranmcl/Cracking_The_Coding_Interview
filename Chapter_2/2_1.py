@@ -60,6 +60,15 @@ class LinkedList:
         if dataHash[key] > 1:
             for i in range(dataHash[key]-1):
                 self.removeByData(key)
+  def removeDupsNoBuffer(self):
+      current = self.head_node
+      while current:
+        runner = current.get_next()
+        while runner:
+            if runner.get_data() == current.get_data():
+                self.removeByData(runner.get_data())
+            runner = runner.get_next()
+        current = current.get_next()
 
 if __name__ == "__main__":
     linkeddata = [5,4,1,2,3,4,6,5,2]
@@ -67,5 +76,5 @@ if __name__ == "__main__":
     for i in linkeddata[1:]:
         newList.insert(i)
     print(newList.displayList())
-    print(newList.removeDups())
+    print(newList.removeDupsNoBuffer())
     print(newList.displayList())
