@@ -77,6 +77,7 @@ def addTwo(L1, L2):
         current1 = current1.get_next()
     if carry > 0:
         current1.set_next(Node(carry))
+    return number1
 
 if __name__ == "__main__":
     number1 = LinkedList(Node(7))
