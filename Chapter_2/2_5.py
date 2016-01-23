@@ -28,6 +28,10 @@ class LinkedList:
   def __init__(self, head_node=None):
     self.head_node = head_node
     self.tail_node = head_node
+  def headInsert(self, data):
+    new_node = Node(data)
+    new_node.set_next(self.head_node)
+    self.head_node = new_node
   def insert(self, data):
     new_node = Node(data)
     if self.head_node == None:
@@ -78,7 +82,23 @@ def addTwo(L1, L2):
     if carry > 0:
         current1.set_next(Node(carry))
     return number1
-
+def Faddtwo(Llist1, Llist2):
+    numbers1 = Llist1.displayList()
+    numbers2 = Llist2.displayList()
+    firstNo = ""
+    secondNo = ""
+    for i in numbers1:
+        firstNo += str(i)
+    for i in numbers2:
+        secondNo += str(i)
+    result = int(firstNo) + int(secondNo)
+    result = str(result)
+    endList = LinkedList(Node(int(result[0])))
+    for i in result[1:]:
+        endList.insert(int(i))
+    return endList
+        
+    
 if __name__ == "__main__":
     number1 = LinkedList(Node(7))
     number1.insert(1)
@@ -87,5 +107,6 @@ if __name__ == "__main__":
     number2.insert(9)
     number2.insert(2)
     print(number1.displayList())
-    addTwo(number1, number2)
-    print(number1.displayList())
+    print(number2.displayList())
+    print(Faddtwo(number1, number2).displayList())
+    print(addTwo(number1, number2).displayList())
