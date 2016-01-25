@@ -46,9 +46,9 @@ class LinkedList:
       current = current.get_next()
   def displayList(self):
     current = self.head_node
-    result = []
+    result = ""
     while current:
-        result.append(current.get_data())
+        result += str(current.get_data())
         current = current.get_next()
     return result
   def removeNode(self, node):
@@ -85,14 +85,7 @@ def addTwo(L1, L2):
 def Faddtwo(Llist1, Llist2):
     numbers1 = Llist1.displayList()
     numbers2 = Llist2.displayList()
-    firstNo = ""
-    secondNo = ""
-    for i in numbers1:
-        firstNo += str(i)
-    for i in numbers2:
-        secondNo += str(i)
-    result = int(firstNo) + int(secondNo)
-    result = str(result)
+    result = str(int(numbers1) + int(numbers2))
     endList = LinkedList(Node(int(result[0])))
     for i in result[1:]:
         endList.insert(int(i))
