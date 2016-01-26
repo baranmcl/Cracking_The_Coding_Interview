@@ -14,3 +14,5 @@ class Stack:
     self.items.pop()
   def size(self):
     return len(self.items)
+  def min(self):
+    return self.minimum
