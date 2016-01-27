@@ -19,6 +19,7 @@ class Stack2:
     self.items.pop()
     if item == self.minimum:
       self.minimum = self.prevMin
+    ### needs more code here. What if pop is done twice? prevMin needs to go back further
   def size(self):
     return len(self.items)
   def min(self):
