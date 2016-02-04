@@ -5,22 +5,19 @@ Push, pop and min should all operate in O(1) time.
 class Stack2:
   def __init__(self):
     self.items = []
-    self.minimum = self.prevMin = None
+    self.minimum = []
   def isEmpty(self):
     return self.items == []
   def push(self, item):
     self.items.append(item)
-    if self.minimum == None:
-      self.minimum = item
-    elif self.minimum > item:
-      self.prevMin = self.minimum
-      self.minimum = item
+    if not self.minimum or item <= self.min():
+        self.minimum.append(item)
   def pop(self, item):
-    self.items.pop()
-    if item == self.minimum:
-      self.minimum = self.prevMin
-    ### needs more code here. What if pop is done twice? prevMin needs to go back further
+    x = self.items.pop()
+    if x == self.min():
+        self.minimum.pop()
+    return x
   def size(self):
     return len(self.items)
   def min(self):
-    return self.minimum
+    return self.minimum[-1]
