@@ -34,16 +34,31 @@ class LinkedList:
         result.append(current.get_data())
         current = current.get_next()
     return result
-def isPalindrome(LList):
-  data = LList.displayList()
-  if data == data[:-1]: return True
-  else: return False
+  def length(self):
+    current = self.head_node
+    length = 1
+    while current:
+        length += 1
+        current = current.get_next()
+    return length - 1
 
+def isPalindrome(node, length):
+    if length == 1: return True
+    elif length == 2: return node.get_data() == node.get_next().get_data()
+    else:
+        current = node
+        next_no = current.get_next()
+        for i in xrange(length-1):
+            current = current.get_next()
+        if node.get_data() == current.get_data():
+            return isPalindrome(next_no, length-2)
+        return False
 
 if __name__ == "__main__":
-    linkeddata = [5,4,1,2,3,4,6,5,2]
+    linkeddata = [5,4,5,4,5,4]
     newList = LinkedList(Node(linkeddata[0]))
     for i in linkeddata[1:]:
         newList.insert(i)
-    print(newList.displayList())
-    print(isPalindrome(newList))
+    print(newList.displayList() == newList.displayList()[::-1])
+    print(newList.length())
+    print(isPalindrome(newList.head_node, newList.length()))
