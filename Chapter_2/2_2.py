@@ -51,6 +51,16 @@ class LinkedList:
           result.append(current.get_data())
           current = current.get_next()
       return result[-data]
+  def kThToLast2(self, data):
+      current = self.head_node
+      runner = self.head_node
+      count = 0
+      while runner:
+          count += 1
+          runner = runner.get_next()
+      for i in xrange(count-data):
+          current = current.get_next()
+      return current.get_data()
 
 if __name__ == "__main__":
     linkeddata = [5,4,1,2,3,4,6,5,2]
@@ -59,3 +69,4 @@ if __name__ == "__main__":
         newList.insert(i)
     print(newList.displayList())
     print(newList.kThToLast(3))
+    print(newList.kThToLast2(3))
