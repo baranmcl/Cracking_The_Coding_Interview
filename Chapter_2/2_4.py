@@ -50,7 +50,7 @@ class LinkedList:
                 current = current.get_next()
         previous = current
         current = current.get_next()
-  def removeNode(self, data):
+  def removeNode(self, node):
       currentNode = node
       nextNode = node.get_next()
       currentNode.set_data(nextNode.get_data())
@@ -68,6 +68,33 @@ class LinkedList:
           current = current.get_next()
       smaller.tail_node.set_next(larger.head_node)
       return smaller
+  def partitionList2(self, data, length):
+      current = self.head_node
+      prev = None
+      for i in range(length):
+          node_data = current.get_data()
+          if node_data >= data:
+              self.insert(node_data)
+              nextNode = current.get_next()
+              if current == self.head_node:
+                  self.head_node = nextNode
+                  current = nextNode
+              else: 
+                  prev.set_next(nextNode)
+                  current = nextNode
+          else:
+              prev = current
+              current = current.get_next()
+      return self
+    
+  def size(self):
+      current = self.head_node
+      count = 0
+      while current:
+          count += 1
+          current = current.get_next()
+      return count
+
 
 if __name__ == "__main__":
     linkeddata = [5,4,1,2,3,4,6,5,2]
@@ -75,5 +102,6 @@ if __name__ == "__main__":
     for i in linkeddata[1:]:
         newList.insert(i)
     print(newList.displayList())
-    newList = newList.partitionList(3)
+#    newList = newList.partitionList(3)
+    newList = newList.partitionList2(3, newList.size())
     print(newList.displayList())
