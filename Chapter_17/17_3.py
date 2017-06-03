@@ -1,5 +1,4 @@
 #Write an algorithm which computes the number of trailing zeros in n factorial.
-#Write an algorithm which computes the number of trailing zeros in n factorial.
 def zeroCountFactorial(n):
   zeroCount = 0
   while n > 0:
