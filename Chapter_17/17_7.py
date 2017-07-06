@@ -10,9 +10,6 @@ def intConvert(n):
   tens = { '1':'ten', '2':'twenty', '3':'thirty', '4':'forty', '5':'fifty', '6':'sixty', '7':'seventy', '8':'eighty', '9':'ninety'}
   bigs = ['hundred', 'thousand', 'million', 'billion', 'trillion']
   
-  if len(textNumList) > 7:
-    return "the number is too big. 7 digits max."
-  
   answer = ""
   
   return reversedList
