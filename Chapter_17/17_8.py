@@ -5,17 +5,29 @@ EXAMPLE
 Input: 2, -8, 3, -2, 4, -10
 Output: 5 (i.e., {3, -2, 4})
 '''
-Input = [2, -8, 3, -2, 4, -10]
+sample = [2, -8, 3, -2, 4, -10]
 
 def greatestSum(series):
-    answer = 0
-    for i in range(0,len(series)):
-        total = 0
-        for j in range(i+1):
-            total += series[j]
-        print(str(total) + '!')
-        if total > answer:
-            answer = total
-    return answer
+    max_so_far = 0
+    max_ending_here = 0
     
-print(greatestSum(Input))
+    for i in range(0, len(series)):
+      max_ending_here = max_ending_here + series[i]
+      if max_ending_here < 0:
+        max_ending_here = 0
+      elif max_ending_here > max_so_far:
+        max_so_far = max_ending_here
+      
+    return max_so_far
+    
+def greatestSum2(series):
+    max_so_far =series[0]
+    curr_max = series[0]
+    
+    for i in range(1,len(series)):
+        curr_max = max(series[i], curr_max + series[i])
+        max_so_far = max(max_so_far,curr_max)
+     
+    return max_so_far
+    
+print(greatestSum(sample), greatestSum2(sample))
